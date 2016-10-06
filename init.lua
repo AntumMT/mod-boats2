@@ -382,8 +382,8 @@ minetest.register_craftitem("boats:sail_boat", {
 minetest.register_craft({
 	output = "boats:sail_boat",
 	recipe = {
-		{"", "wool:white", ""},
-		{"group:wood", "wool:white", "group:wood"},
-		{"group:tree", "boats:row_boat", "group:tree"},
+		{"", "group:wool", ""},
+		{"group:wood", "group:wool", "group:wood"},
+		{"group:tree", "boats:boat", "group:tree"},
 	},
 })
