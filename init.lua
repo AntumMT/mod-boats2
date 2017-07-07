@@ -199,7 +199,6 @@ end
 
 minetest.register_entity(":boats:row_boat", row_boat)
 minetest.register_alias("boats:rowboat", "boats:row_boat")
-minetest.register_alias("boats:boat", "boats:row_boat")
 
 
 minetest.register_craftitem(":boats:row_boat", {
