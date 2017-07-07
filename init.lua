@@ -30,7 +30,7 @@ local function get_v(v)
 end
 
 --
--- Boat entity
+-- Row boat entity
 --
 
 local row_boat = {
@@ -92,7 +92,7 @@ function row_boat.on_punch(self, puncher, time_from_last_punch, tool_capabilitie
 		self.object:remove()
 	end)
 	if not minetest.setting_getbool("creative_mode") then
-		puncher:get_inventory():add_item("main", "boats2:boat")
+		puncher:get_inventory():add_item("main", "boats2:row_boat")
 	end
 end
 
@@ -178,10 +178,12 @@ function row_boat.on_step(self, dtime)
 	self.object:setacceleration(new_acce)
 end
 
-minetest.register_entity("boats2:boat", row_boat)
+minetest.register_entity("boats2:row_boat", row_boat)
+minetest.register_alias("boats2:rowboat", "boats2:row_boat")
+minetest.register_alias("boats2:boat", "boats2:row_boat")
 
 
-minetest.register_craftitem("boats2:boat", {
+minetest.register_craftitem("boats2:row_boat", {
 	description = "Boat",
 	inventory_image = "rowboat_inventory.png",
 	wield_image = "rowboat_wield.png",
@@ -196,7 +198,7 @@ minetest.register_craftitem("boats2:boat", {
 			return
 		end
 		pointed_thing.under.y = pointed_thing.under.y + 0.5
-		minetest.add_entity(pointed_thing.under, "boats2:boat")
+		minetest.add_entity(pointed_thing.under, "boats2:row_boat")
 		if not minetest.setting_getbool("creative_mode") then
 			itemstack:take_item()
 		end
@@ -205,7 +207,7 @@ minetest.register_craftitem("boats2:boat", {
 })
 
 minetest.register_craft({
-	output = "boats2:boat",
+	output = "boats2:row_boat",
 	recipe = {
 		{"",           "",           ""          },
 		{"group:wood", "",           "group:wood"},
@@ -360,6 +362,7 @@ function sail_boat.on_step(self, dtime)
 end
 
 minetest.register_entity("boats2:sail_boat", sail_boat)
+minetest.register_alias("boats2:sailboat", "boats2:sail_boat")
 
 minetest.register_craftitem("boats2:sail_boat", {
 	description = "Sail Boat",
@@ -389,6 +392,6 @@ minetest.register_craft({
 	recipe = {
 		{"", "group:wool", ""},
 		{"group:wood", "group:wool", "group:wood"},
-		{"group:tree", "boats2:boat", "group:tree"},
+		{"group:tree", "boats2:row_boat", "group:tree"},
 	},
 })
