@@ -92,7 +92,7 @@ function row_boat.on_punch(self, puncher, time_from_last_punch, tool_capabilitie
 		self.object:remove()
 	end)
 	if not minetest.setting_getbool("creative_mode") then
-		puncher:get_inventory():add_item("main", "boats2:row_boat")
+		puncher:get_inventory():add_item("main", "boats:row_boat")
 	end
 end
 
@@ -178,12 +178,12 @@ function row_boat.on_step(self, dtime)
 	self.object:setacceleration(new_acce)
 end
 
-minetest.register_entity("boats2:row_boat", row_boat)
-minetest.register_alias("boats2:rowboat", "boats2:row_boat")
-minetest.register_alias("boats2:boat", "boats2:row_boat")
+minetest.register_entity(":boats:row_boat", row_boat)
+minetest.register_alias("boats:rowboat", "boats:row_boat")
+minetest.register_alias("boats:boat", "boats:row_boat")
 
 
-minetest.register_craftitem("boats2:row_boat", {
+minetest.register_craftitem(":boats:row_boat", {
 	description = "Boat",
 	inventory_image = "rowboat_inventory.png",
 	wield_image = "rowboat_wield.png",
@@ -198,7 +198,7 @@ minetest.register_craftitem("boats2:row_boat", {
 			return
 		end
 		pointed_thing.under.y = pointed_thing.under.y + 0.5
-		minetest.add_entity(pointed_thing.under, "boats2:row_boat")
+		minetest.add_entity(pointed_thing.under, "boats:row_boat")
 		if not minetest.setting_getbool("creative_mode") then
 			itemstack:take_item()
 		end
@@ -207,7 +207,7 @@ minetest.register_craftitem("boats2:row_boat", {
 })
 
 minetest.register_craft({
-	output = "boats2:row_boat",
+	output = "boats:row_boat",
 	recipe = {
 		{"",           "",           ""          },
 		{"group:wood", "",           "group:wood"},
@@ -275,7 +275,7 @@ function sail_boat.on_punch(self, puncher, time_from_last_punch, tool_capabiliti
 		self.object:remove()
 	end)
 	if not minetest.setting_getbool("creative_mode") then
-		puncher:get_inventory():add_item("main", "boats2:sail_boat")
+		puncher:get_inventory():add_item("main", "boats:sail_boat")
 	end
 end
 
@@ -361,10 +361,10 @@ function sail_boat.on_step(self, dtime)
 	self.object:setacceleration(new_acce)
 end
 
-minetest.register_entity("boats2:sail_boat", sail_boat)
-minetest.register_alias("boats2:sailboat", "boats2:sail_boat")
+minetest.register_entity(":boats:sail_boat", sail_boat)
+minetest.register_alias("boats:sailboat", "boats:sail_boat")
 
-minetest.register_craftitem("boats2:sail_boat", {
+minetest.register_craftitem(":boats:sail_boat", {
 	description = "Sail Boat",
 	inventory_image = "sailboat_inventory.png",
 	wield_image = "sailboat_wield.png",
@@ -379,7 +379,7 @@ minetest.register_craftitem("boats2:sail_boat", {
 			return
 		end
 		pointed_thing.under.y = pointed_thing.under.y+0.5
-		minetest.add_entity(pointed_thing.under, "boats2:sail_boat")
+		minetest.add_entity(pointed_thing.under, "boats:sail_boat")
 		if not minetest.setting_getbool("creative_mode") then
 			itemstack:take_item()
 		end
@@ -388,10 +388,10 @@ minetest.register_craftitem("boats2:sail_boat", {
 })
 
 minetest.register_craft({
-	output = "boats2:sail_boat",
+	output = "boats:sail_boat",
 	recipe = {
 		{"", "group:wool", ""},
 		{"group:wood", "group:wool", "group:wood"},
-		{"group:tree", "boats2:row_boat", "group:tree"},
+		{"group:tree", "boats:row_boat", "group:tree"},
 	},
 })
