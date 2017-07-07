@@ -23,7 +23,7 @@ minetest.register_craft({
 	recipe = {
 		{"",           "",           ""          },
 		{"group:wood", "",           "group:wood"},
-		{"group:wood", "group:wood", "group:wood"},
+		{"group:wood", "boats:boat", "group:wood"},
 	},
 })
 
