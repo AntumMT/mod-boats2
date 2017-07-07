@@ -225,15 +225,6 @@ minetest.register_craftitem(":boats:row_boat", {
 	end,
 })
 
-minetest.register_craft({
-	output = "boats:row_boat",
-	recipe = {
-		{"",           "",           ""          },
-		{"group:wood", "",           "group:wood"},
-		{"group:wood", "group:wood", "group:wood"},
-	},
-})
-
 
 local sail_boat = {
 	physical = true,
@@ -406,11 +397,11 @@ minetest.register_craftitem(":boats:sail_boat", {
 	end,
 })
 
-minetest.register_craft({
-	output = "boats:sail_boat",
-	recipe = {
-		{"", "group:wool", ""},
-		{"group:wood", "group:wool", "group:wood"},
-		{"group:tree", "boats:row_boat", "group:tree"},
-	},
-})
+
+local scripts = {
+	"crafting",
+}
+
+for index, script in ipairs(scripts) do
+	dofile(boats2.modpath .. "/" .. script .. ".lua")
+end
