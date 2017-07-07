@@ -1,3 +1,8 @@
+
+boats2 = {}
+boats2.modname = minetest.get_current_modname()
+boats2.modpath = minetest.get_modpath(boats2.modname)
+
 --
 -- Helper functions
 --
