@@ -184,7 +184,7 @@ minetest.register_alias("boats:boat", "boats:row_boat")
 
 
 minetest.register_craftitem(":boats:row_boat", {
-	description = "Boat",
+	description = "Row Boat",
 	inventory_image = "rowboat_inventory.png",
 	wield_image = "rowboat_wield.png",
 	wield_scale = {x = 2, y = 2, z = 1},
